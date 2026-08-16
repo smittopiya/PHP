@@ -37,3 +37,4 @@ function confirmDelete(url, name) {
 </script>
 </body>
 </html>
+<?php ob_end_flush(); ?>
