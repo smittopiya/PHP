@@ -5,6 +5,8 @@
  */
 session_start();
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/auth.php';
+requireLogin(); // Redirect to login.php if not authenticated
 
 $pageTitle  = $pageTitle ?? 'Smart Dairy';
 $activeNav  = $activeNav ?? 'dashboard';
@@ -64,6 +66,7 @@ $navItems = [
     <button class="btn-dark-toggle" onclick="toggleDark()" title="Toggle Dark Mode">
       <?= $darkMode ? '☀️ Light Mode' : '🌙 Dark Mode' ?>
     </button>
+    <a href="/milk-management/logout.php" class="btn-dark-toggle" style="text-decoration:none;display:block;margin-top:6px;text-align:center;background:rgba(220,38,38,0.15);color:#F87171;border:1px solid rgba(220,38,38,0.25)" onclick="return confirm('Are you sure you want to logout?')">🔓 Logout</a>
   </div>
 </nav>
 
