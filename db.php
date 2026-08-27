@@ -1,10 +1,28 @@
 <?php
 ob_start(); // Buffer all output so header() redirects always work
+ini_set('default_charset', 'UTF-8');
+header('Content-Type: text/html; charset=utf-8');
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'smart_dairy');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+/**
+ * Auto-detect environment:
+ * - localhost / 127.0.0.1 = Laragon (local)
+ * - anything else         = InfinityFree (live)
+ */
+$isLocal = in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1', '::1']);
+
+if ($isLocal) {
+    // ── LOCAL (Laragon) ──────────────────────────
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'smart_dairy');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+} else {
+    // ── LIVE (InfinityFree) ──────────────────────
+    define('DB_HOST', 'sql206.infinityfree.com');
+    define('DB_NAME', 'if0_42651337_MomaiDairy');
+    define('DB_USER', 'if0_42651337');
+    define('DB_PASS', 'SmitPatel6513');
+}
 define('DB_CHARSET', 'utf8mb4');
 
 try {

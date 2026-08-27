@@ -3,11 +3,11 @@
 
 <!-- ── Bottom Navigation (mobile) ────────────────────────── -->
 <nav class="bottom-nav">
-  <a href="/milk-management/index.php"              class="bnav-item <?= $activeNav==='dashboard'?'active':'' ?>"><span>🏠</span><small>Home</small></a>
-  <a href="/milk-management/entries/index.php"      class="bnav-item <?= $activeNav==='entries'?'active':'' ?>"><span>🥛</span><small>Entries</small></a>
-  <a href="/milk-management/customers/index.php"    class="bnav-item <?= $activeNav==='customers'?'active':'' ?>"><span>👥</span><small>Customers</small></a>
-  <a href="/milk-management/payments/index.php"     class="bnav-item <?= $activeNav==='payments'?'active':'' ?>"><span>💰</span><small>Payments</small></a>
-  <a href="/milk-management/bills/index.php"        class="bnav-item <?= $activeNav==='bills'?'active':'' ?>"><span>📄</span><small>Bills</small></a>
+  <a href="<?= BASE_PATH ?>index.php"              class="bnav-item <?= $activeNav==='dashboard'?'active':'' ?>"><span>&#x1F3E0;</span><small>Home</small></a>
+  <a href="<?= BASE_PATH ?>entries/index.php"      class="bnav-item <?= $activeNav==='entries'?'active':'' ?>"><span>&#x1F95B;</span><small>Entries</small></a>
+  <a href="<?= BASE_PATH ?>customers/index.php"    class="bnav-item <?= $activeNav==='customers'?'active':'' ?>"><span>&#x1F465;</span><small>Customers</small></a>
+  <a href="<?= BASE_PATH ?>payments/index.php"     class="bnav-item <?= $activeNav==='payments'?'active':'' ?>"><span>&#x1F4B0;</span><small>Payments</small></a>
+  <a href="<?= BASE_PATH ?>bills/index.php"        class="bnav-item <?= $activeNav==='bills'?'active':'' ?>"><span>&#x1F4C4;</span><small>Bills</small></a>
 </nav>
 
 <script>

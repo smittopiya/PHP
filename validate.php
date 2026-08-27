@@ -1,6 +1,6 @@
 <?php
 /**
- * validate.php — Shared validation helpers for Smart Dairy
+ * validate.php &mdash; Shared validation helpers for Smart Dairy
  * Include this file in any page that needs input validation.
  */
 
@@ -129,7 +129,7 @@ class Validator {
  */
 function fieldError(array $errors, string $field): string {
     if (isset($errors[$field])) {
-        return '<div class="field-error"><span>⚠</span> ' . htmlspecialchars($errors[$field]) . '</div>';
+        return '<div class="field-error"><span>&#x26A0;</span> ' . htmlspecialchars($errors[$field]) . '</div>';
     }
     return '';
 }

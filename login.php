@@ -1,6 +1,6 @@
 <?php
 /**
- * login.php — Secure login page for Smart Dairy.
+ * login.php &mdash; Secure login page for Smart Dairy.
  * Username: MomaiDairy  |  Password: MomaiDairy
  */
 require_once __DIR__ . '/db.php';
@@ -8,7 +8,7 @@ require_once __DIR__ . '/auth.php';
 
 // If already logged in, go to dashboard
 if (isLoggedIn()) {
-    header('Location: /milk-management/index.php');
+    header('Location: ' . BASE_PATH . 'index.php');
     exit;
 }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['auth_logged_in'] = true;
         $_SESSION['auth_user']      = $username;
         $_SESSION['auth_login_at']  = time();
-        header('Location: /milk-management/index.php');
+        header('Location: ' . BASE_PATH . 'index.php');
         exit;
     } else {
         $error = 'Invalid username or password.';
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login — <?= htmlspecialchars($dairyName) ?></title>
+<title>Login &mdash; <?= htmlspecialchars($dairyName) ?></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -233,33 +233,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="login-card">
   <div class="brand">
-    <span class="brand-icon">🥛</span>
+    <span class="brand-icon">&#x1F95B;</span>
     <div class="brand-name"><?= htmlspecialchars($dairyName) ?></div>
     <div class="brand-sub">Management Suite</div>
   </div>
 
   <?php if ($error): ?>
-  <div class="error-msg">⚠️ <?= htmlspecialchars($error) ?></div>
+  <div class="error-msg">&#x26A0; <?= htmlspecialchars($error) ?></div>
   <?php endif; ?>
 
   <form method="POST" autocomplete="off">
     <div class="form-group">
-      <label class="form-label" for="username">👤 Username</label>
+      <label class="form-label" for="username">&#x1F464; Username</label>
       <input class="form-input" type="text" id="username" name="username"
              placeholder="Enter username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
              required autofocus>
     </div>
 
     <div class="form-group">
-      <label class="form-label" for="password">🔒 Password</label>
+      <label class="form-label" for="password">&#x1F512; Password</label>
       <div class="pw-wrap">
         <input class="form-input" type="password" id="password" name="password"
                placeholder="Enter password" required>
-        <button type="button" class="pw-toggle" onclick="togglePw()" id="pwBtn">👁</button>
+        <button type="button" class="pw-toggle" onclick="togglePw()" id="pwBtn">&#x1F441;</button>
       </div>
     </div>
 
-    <button type="submit" class="login-btn">🔐 Login to Dashboard</button>
+    <button type="submit" class="login-btn">&#x1F510; Login to Dashboard</button>
   </form>
 
   <div class="login-footer">
@@ -273,10 +273,10 @@ function togglePw() {
   var btn = document.getElementById('pwBtn');
   if (pw.type === 'password') {
     pw.type = 'text';
-    btn.textContent = '🙈';
+    btn.textContent = '&#x1F648;';
   } else {
     pw.type = 'password';
-    btn.textContent = '👁';
+    btn.textContent = '&#x1F441;';
   }
 }
 </script>
